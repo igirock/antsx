@@ -95,13 +95,19 @@ namespace AntsX.Framework.Units.Components.ComponentImplementation
 
             foreach (ModelMesh mesh in this.graphicDefinition.Model.Meshes)
             {
-                foreach (BasicEffect be in mesh.Effects)
+                foreach (AlphaTestEffect ae in mesh.Effects)
                 {
-                    be.Projection = projectionMatrix;
-                    be.View = viewMatrix;
-                    be.World = worldMatrix;
-                    //be.World = Matrix.CreateScale(1) * Matrix.CreateTranslation(0, 0, 0);
+                    ae.Projection = projectionMatrix;
+                    ae.View = viewMatrix;
+                    ae.World = worldMatrix;
                 }
+                //foreach (BasicEffect be in mesh.Effects)
+                //{
+                //    be.Projection = projectionMatrix;
+                //    be.View = viewMatrix;
+                //    be.World = worldMatrix;
+                //    //be.World = Matrix.CreateScale(1) * Matrix.CreateTranslation(0, 0, 0);
+                //}
                 
                 mesh.Draw();
             }
